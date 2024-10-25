@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="https://alfieterry.co.uk/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfie Terry | Creative Developer</title>
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="./assets/css/pounder2.css">
+    
+    <!-- Font and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="https://alfieterry.co.uk/" class="logo">
+                <img src="https://alfieterry.co.uk/assets/images/logo.png" alt="Alfie Terry Logo">
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="https://alfieterry.co.uk/code" class="nav-link">Cofe</a>
+                <a href="https://alfieterry.co.uk/about" class="nav-link">About</a>
+                <a href="https://alfieterry.co.uk/events" class="nav-link">Events</a>
+                <a href="https://alfieterry.co.uk/contact" class="nav-link">Contact</a>
+                <a href="https://alfieterry.co.uk/policys" class="nav-link">Policys</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="background-grid"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Alfie Terry</h1>
+            <p class="hero-subtitle">Creative Developer & Digital Artist</p>
+            <a href="https://alfieterry.co.uk/code" class="hero-cta">View My Work</a>
+        </div>
+    </section>
+
+    <section class="welcome">
+        <div class="background-grid"></div>
+        <div class="welcome-content">
+            <h2 class="welcome-title">Welcome</h2>
+            <p class="welcome-text">Welcome to my website alfieterry.co.uk. Feel free to have a peek around every corner of this maze as there's a different route every time.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-content">
+            <h2 class="contact-title">Get in Touch</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name" class="floating-label">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="floating-label">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="floating-label">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" id="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                try {
+                    // Simulate form submission
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    // Reset form
+                    form.reset();
+                    submitBtn.textContent = 'Message Sent!';
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Send Message';
+                    }, 3000);
+                    
+                } catch (error) {
+                    submitBtn.textContent = 'Error! Try Again';
+                    setTimeout(() => {
+                        submitBtn.textContent = 'Send Message';
+                    }, 3000);
+                }
+            });
+
+            // Add floating effect to form inputs
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.classList.add('floating');
+                });
+                input.addEventListener('blur', () => {
+                    if (!input.value) {
+                        input.parentElement.classList.remove('floating');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
 
